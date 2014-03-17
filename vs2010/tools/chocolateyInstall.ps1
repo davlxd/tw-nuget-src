@@ -10,7 +10,7 @@ try {
   Get-ChocolateyUnzip "c:\vs2010.zip" "c:\vs2010" -validExitCodes $validExitCodes
   
   Install-ChocolateyInstallPackage "$packageName" "$installerType" "/UnattendFile C:\vs2010\unattend-install-vs2010.ini" 'C:\vs2010\en_visual_studio_2010_ultimate_x86_dvd_509116\Setup\setup.exe' -validExitCodes $validExitCodes
-  Write-ChocolateySuccess "$packageName"
+  Write-ChocolateySuccess "$packageName" -validExitCodes $validExitCodes
 } catch {
   Write-ChocolateyFailure "$packageName" "$($_.Exception.Message)"
   throw
